@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" type="image/x-icon" href="../static/assets/logo.png">
+  <link rel="stylesheet" type="text/css" href="../static/feedback.css">
+  <script src="https://kit.fontawesome.com/cacd88a93b.js" crossorigin="anonymous"></script>
+  <title>Feedback - Heart Disease Prediction ChatBot</title>
+</head>
+<body>
+<div class="top">
+  <img src="../static/assets/logo.png" alt="Logo">
+  <p>Feedback</p>
+  <a href="/">Go back to Home</a>
+</div>
+<div class="feedback">
+  <div class="container">
+    <h2>SEND US A MESSAGE</h2>
+    <form action="/feedback" method="post" onsubmit="return validateForm()">
+      <div class="form-group">
+        <input type="text" id="username" name="username" placeholder="Username" oninput="validateUsername()">
+        <span id="usernameError" class="error"></span>
+      </div>
+      <div class="form-group">
+        <input type="email" id="email" name="email" placeholder="Email" oninput="validateEmail()">
+        <span id="emailError" class="error"></span>
+      </div>
+      <div class="form-group">
+        <textarea id="message" name="message" placeholder="Your Message" oninput="validateMessage()"></textarea>
+        <span id="messageError" class="error"></span>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn-send" id="submitButton" disabled>SEND</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div id="customSuccess" class="success-container">
+  <p id="customSuccessMessage"></p>
+</div>
+
+{% if alert_message %}
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var alertMessage = "{{ alert_message }}";
+    var customAlert = document.getElementById("customSuccess");
+    var customAlertMessage = document.getElementById("customSuccessMessage");
+
+    customAlertMessage.textContent = alertMessage;
+    customAlert.classList.add("show");
+
+    setTimeout(function () {
+      customAlert.classList.remove("show");
+    }, 5000);
+  });
+</script>
+{% endif %}
+
+<footer>
+  <div class="social-icons">
+    <a title="twitter" href="https://twitter.com/JohnRai99109305" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+    <a title="linkedIn" href="https://www.linkedin.com/in/john-rai-b844a7266/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+  </div>
+  <p>&copy; 2023 Heart Disease Prediction ChatBot. All rights reserved.</p>
+</footer>
+
+<script>
+  function validateUsername() {
+    const username = document.getElementById("username").value;
+    const usernameError = document.getElementById("usernameError");
+
+    if (username.trim() === "") {
+      usernameError.textContent = "Username is required";
+    } else {
+      usernameError.textContent = "";
+    }
+
+    enableOrDisableSubmitButton();
+  }
+
+  function validateEmail() {
+    const email = document.getElementById("email").value;
+    const emailError = document.getElementById("emailError");
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!email.match(emailPattern)) {
+      emailError.textContent = "Invalid email address";
+    } else {
+      emailError.textContent = "";
+    }
+
+    enableOrDisableSubmitButton();
+  }
+
+  function validateMessage() {
+    const message = document.getElementById("message").value;
+    const messageError = document.getElementById("messageError");
+
+    if (message.trim() === "") {
+      messageError.textContent = "Message is required";
+    } else {
+      messageError.textContent = "";
+    }
+
+    enableOrDisableSubmitButton();
+  }
+
+  function enableOrDisableSubmitButton() {
+    const usernameError = document.getElementById("usernameError").textContent;
+    const emailError = document.getElementById("emailError").textContent;
+    const messageError = document.getElementById("messageError").textContent;
+    const submitButton = document.getElementById("submitButton");
+
+    if (usernameError === "" && emailError === "" && messageError === "") {
+      submitButton.removeAttribute("disabled");
+    } else {
+      submitButton.setAttribute("disabled", "disabled");
+    }
+  }
+
+  function validateForm() {
+    return true;
+  }
+</script>
+</body>
+</html>

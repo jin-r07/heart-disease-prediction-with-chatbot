@@ -1,0 +1,386 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": ["hi", "hey", "how are you", "is anyone there", "hello", "whats up", "namaste", "anyone there", "anyone", "morning", "afternoon", "yo", "bro", "baymax", "good morning", "good afternoon"],
+      "responses": [
+        "Hello!",
+        "Good to see you again!",
+        "Hi there, how can I help?",
+        "Hello! How can I assist you today?"
+      ]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": ["cya", "see you later", "goodbye", "i am leaving", "have a Good day", "bye", "see you", "later", "gotta go"],
+      "responses": [
+        "Goodbye! If you have any more questions in the future, feel free to ask. Take care!",
+        "Goodbye! and Take care."
+      ]
+    },
+    {
+      "tag": "thanks",
+      "patterns": ["thank you", "thanks a lot", "much appreciated", "thank you very much", "tq", "thanks", "dhanyabad"],
+      "responses": [
+        "You're welcome!",
+        "Glad I could help!",
+        "No problem, happy to assist!"
+      ]
+    },
+    {
+      "tag": "help",
+      "patterns": [
+        "can you help me",
+        "I need assistance",
+        "please help me",
+        "help",
+        "assistance"
+      ],
+      "responses": [
+        "Of course, I'm here to help. What do you need assistance with?",
+        "Sure, I'll do my best to assist you. How may I help you?",
+        "Of course, please let me know how I can assist you."
+      ]
+    },
+    {
+      "tag": "age",
+      "patterns": [
+        "information about age",
+        "tell me about age",
+        "what is age",
+        "age",
+        "info on age",
+        "about age"
+      ],
+      "responses": [
+        "Age refers to the number of years that have passed since a person's birth. It's a common measure of the time an individual has been alive. Age is often used to determine various factors related to health, legal rights, education, retirement, and more. It's an important demographic and personal attribute that is used in various contexts, including medical assessments, insurance calculations, and social interactions.",
+        "\"Age\" refers to the amount of time that has passed since a person's birth. It is a measure of how old someone is. Age is often measured in years, and it's a fundamental piece of demographic information used for various purposes, such as understanding population demographics, assessing health risks, determining legal rights and responsibilities, and more."
+      ]
+    },
+    {
+      "tag": "gender",
+      "patterns": [
+        "gender",
+        "what is gender",
+        "tell me about gender",
+        "info on gender",
+        "about gender",
+        "information about gender"
+      ],
+      "responses": [
+        "\"Gender\" refers to the social, cultural, and psychological characteristics and roles that are associated with being male, female, or non-binary. It is distinct from biological sex, which is determined by physical and genetic attributes. Gender encompasses a wide range of identities, expressions, and roles that go beyond the binary classification of male and female. Also typically referred to as Sex in medical terms. \"Sex\" refers to the biological attributes that categorize individuals as male, female, or intersex based on their reproductive and physiological characteristics."
+      ]
+    },
+    {
+      "tag": "chest-pain",
+      "patterns": [
+        "chest pain",
+        "angina",
+        "tell me about angina",
+        "tell me about chest pain",
+        "info on angina",
+        "info on chest pain",
+        "about chest pain",
+        "about angina",
+        "information about angina",
+        "information about chest pain"
+      ],
+      "responses": [
+        "\"Chest pain\" or \"Angina.\" Angina is a term used to describe chest pain or discomfort that occurs when the heart muscle doesn't receive enough blood due to reduced blood flow through the coronary arteries. The \"cp\" attribute is used to categorize the type of chest pain a person is experiencing. Different types of chest pain can provide valuable diagnostic information. Here are the different categories or types of chest pain: Typical Angina (1):\n\nThis type of chest pain is also known as \"stable angina.\"\nIt is characterized by a predictable pattern of pain that occurs during physical exertion or emotional stress.\nThe pain is usually relieved by rest or medication.\nIt is often described as a squeezing or pressure-like sensation in the chest.\nIt is caused by reduced blood flow to the heart muscle due to narrowed coronary arteries.\nAtypical Angina (2):\n\nThis type of chest pain has characteristics that deviate from the typical pattern.\nThe pain might occur with less exertion or even at rest.\nThe quality of pain might differ, such as a burning or stabbing sensation.\nIt may not always respond as expected to rest or medication.\nNon-Anginal Pain (3):\n\nThis category includes chest discomfort that is not related to angina or heart-related causes.\nThe pain might be caused by issues such as indigestion, musculoskeletal problems, or inflammation in the chest.\nAsymptomatic (4):\n\nThis means the individual is not experiencing any chest pain or discomfort.\nThe value 4 might indicate that the individual is not reporting any symptoms related to chest pain."
+      ]
+    },
+    {
+      "tag": "blood-pressure",
+      "patterns": [
+        "information about blood pressure",
+        "tell me about blood pressure",
+        "what is blood pressure",
+        "blood pressure",
+        "info on blood pressure",
+        "about blood pressure",
+        "bp",
+        "what is bp"
+      ],
+      "responses": [
+        "Blood pressure (BP) is a measurement of the pressure exerted by the blood against the walls of the arteries. The measurement consists of two values: systolic and diastolic blood pressure.\n\nSystolic Blood Pressure:\n\nThe higher number in the blood pressure measurement.\nRepresents the pressure in the arteries when the heart contracts (during a heartbeat).\nReflects the force with which blood is pushed out of the heart and into the arteries.\n\nDiastolic Blood Pressure:\n\nThe lower number in the blood pressure measurement.\nRepresents the pressure in the arteries when the heart is at rest (between heartbeats).\nReflects the resistance of the arteries to the blood flow when the heart is not contracting."
+      ]
+    },
+    {
+      "tag": "trestbps",
+      "patterns": [
+        "trestbps",
+        "what is trestbps",
+        "info on trestbps",
+        "information about trestbps",
+        "trestbps full form",
+        "about trestbps"
+      ],
+      "responses": [
+        "\"trestbps\" stands for \"resting blood pressure,\" and it is one of the attributes in the dataset you provided. Let's delve into the details of what resting blood pressure is and why it's relevant in a medical context:\n\nResting Blood Pressure (trestbps):\nResting blood pressure (trestbps) is a measurement of the pressure exerted by the blood against the walls of the arteries while a person is at rest and not engaged in any physical activity. Blood pressure is typically measured in millimeters of mercury (mm Hg)."
+      ]
+    },
+    {
+      "tag": "cholesterol",
+      "patterns": [
+        "chol",
+        "cholesterol",
+        "serum cholesterol level",
+        "what is chol",
+        "what is cholesterol level",
+        "what is serum cholesterol level",
+        "info on cholesterol",
+        "information about cholesterol",
+        "about chol",
+        "about cholesterol"
+      ],
+      "responses": [
+        "Chol\" refers to \"serum cholesterol level,\" which is a measurement of the amount of cholesterol present in the blood. Cholesterol is a type of lipid (fat) that is essential for building cell membranes and producing hormones, but elevated levels of cholesterol can be associated with an increased risk of cardiovascular diseases, including heart disease and stroke. It's important to note that while cholesterol levels are a significant factor in assessing cardiovascular risk, they are just one part of a broader picture. Other factors such as blood pressure, smoking, family history, and more contribute to overall cardiovascular health."
+      ]
+    },
+    {
+      "tag": "fasting blood sugar",
+      "patterns": [
+        "fbs",
+        "fasting blood sugar",
+        "what is fbs",
+        "what is fasting blood sugar",
+        "info on fbs",
+        "info on fasting blood sugar",
+        "information about fasting blood sugar",
+        "information about fbs",
+        "about fbs",
+        "about fasting blood sugar"
+      ],
+      "responses": [
+        "\"fbs\" stands for \"fasting blood sugar,\" and it is a medical attribute often used in the context of assessing the risk of diabetes or other metabolic conditions. Fasting blood sugar refers to the level of glucose (sugar) in the bloodstream after a period of fasting, usually overnight. It provides important information about how well the body regulates blood sugar levels. In the context of heart disease prediction or metabolic health, an elevated fasting blood sugar level might indicate a risk factor for conditions like diabetes. Individuals with consistently high fasting blood sugar levels might need further evaluation and monitoring to assess their metabolic health.\n\nHere's how the \"fbs\" values are typically categorized:\n\nfbs = 1: Fasting blood sugar level > 120 mg/dL\nfbs = 0: Fasting blood sugar level <= 120 mg/dL."
+      ]
+    },
+    {
+      "tag": "resting electrocardiographic",
+      "patterns": [
+        "restecg",
+        "resting electrocardiographic",
+        "what is restecg",
+        "what is resting electrocardiographic",
+        "info on restecg",
+        "info on resting electrocardiographic",
+        "information about resting electrocardiographic",
+        "information about restecg",
+        "about restecg",
+        "about resting electrocardiographic"
+      ],
+      "responses": [
+        "\"restecg\" in the medical dataset likely refers to \"resting electrocardiographic results.\" Electrocardiography (ECG or EKG) is a medical test that measures the electrical activity of the heart over a period of time using electrodes placed on the skin. \"restecg\" attribute has three possible values, each indicating a different result of the resting ECG test:\n\n0: Normal: This value indicates that the resting ECG result is considered normal. It means that the electrical activity of the heart while at rest is within the expected range and doesn't show any significant abnormalities.\n\n1: Having ST-T wave abnormality: This value suggests that there might be abnormalities in the ST-T wave segment of the ECG. ST-T wave changes can indicate various heart conditions, such as ischemia (reduced blood flow to the heart), myocardial infarction (heart attack), or other heart-related issues.\n\n2: Showing probable or definite left ventricular hypertrophy: This value indicates that the ECG suggests the presence of left ventricular hypertrophy (LVH), which is an enlargement of the left ventricle of the heart. LVH can be a sign of underlying heart conditions, such as high blood pressure or other heart diseases."
+      ]
+    },
+    {
+      "tag": "ecg/ekg",
+      "patterns": [
+        "ecg",
+        "ekg",
+        "what is ecg",
+        "what is ekg",
+        "info on ecg",
+        "info on ekg",
+        "information on ecg",
+        "information on ekg",
+        "about ecg",
+        "about ekg"
+      ],
+      "responses": [
+        "Electrocardiography (ECG or EKG) is a medical test that records the electrical activity of the heart over a period of time. It is a valuable tool for diagnosing various heart-related conditions and abnormalities. During an ECG test, small adhesive electrodes are attached to specific locations on a patient's skin, usually on the chest, arms, and legs. These electrodes are connected to an ECG machine that measures and records the electrical impulses generated by the heart as it beats."
+      ]
+    },
+    {
+      "tag": "heart rate",
+      "patterns": [
+        "heart rate",
+        "what is heart rate",
+        "info on heart rate",
+        "about heart rate",
+        "information on heart rate",
+        "hr",
+        "what is hr",
+        "info on hr",
+        "about hr",
+        "information on hr"
+      ],
+      "responses": [
+        "Heart rate refers to the number of times a person's heart beats per minute (bpm). It is a fundamental physiological measurement that reflects the speed at which the heart pumps blood through the body. Heart rate is an important indicator of cardiovascular health and fitness and can be influenced by various factors, including physical activity, stress, emotions, and medical conditions."
+      ]
+    },
+    {
+      "tag": "thalach",
+      "patterns": [
+        "thalach",
+        "what is thalach",
+        "info on thalach",
+        "about thalach",
+        "information on thalach"
+      ],
+      "responses": [
+        "\"thalach\" stands for \"thalachardia,\" which is a medical term used to refer to an abnormally high heart rate. In the context of the dataset you've mentioned, \"thalach\" represents the maximum heart rate achieved by an individual during exercise. In the context of a heart disease prediction model, \"thalach\" can be a valuable feature for assessing an individual's risk of heart disease. An abnormally low or high maximum heart rate achieved during exercise could be indicative of underlying cardiovascular problems and might contribute to the predictive model's accuracy."
+      ]
+    },
+    {
+      "tag": "exercise induced angina",
+      "patterns": [
+        "exang",
+        "exercise induced angina",
+        "what is exang",
+        "what is exercise induced angina",
+        "info on exang",
+        "info on exercise induced angina",
+        "about exang",
+        "about exercise induced angina",
+        "information on exang",
+        "information on exercise induced angina"
+      ],
+      "responses": [
+        "exang stands for \"exercise induced angina.\" Angina is a type of chest pain or discomfort that occurs when the heart muscle doesn't get enough blood flow. It's usually a symptom of an underlying heart condition, such as coronary artery disease. Angina can be triggered by physical exertion or stress, as these situations increase the demand for oxygen-rich blood that the heart might struggle to deliver due to reduced blood flow through the coronary arteries."
+      ]
+    },
+    {
+      "tag": "st depression",
+      "patterns": [
+        "oldpeak",
+        "st depression",
+        "what is oldpeak",
+        "what is st depression?",
+        "info on oldpeak",
+        "info on st depression",
+        "about oldpeak",
+        "about st depression",
+        "information on oldpeak",
+        "information on st depression"
+      ],
+      "responses": [
+        "The term \"oldpeak\" refers to the ST depression induced by exercise relative to rest. Let's break down what this means in the context of medical and cardiac health:\n\nST Depression:\nST depression, or ST segment depression, is a characteristic change seen on an electrocardiogram (ECG or EKG), which is a test that measures the electrical activity of the heart. The ST segment is a flat section of the ECG waveform that occurs between the end of the QRS complex (the depolarization of the ventricles) and the beginning of the T wave (the repolarization of the ventricles)."
+      ]
+    },
+    {
+      "tag": "number of vessels detected by fluoroscopy",
+      "patterns": [
+        "ca",
+        "number of major vessels colored by fluoroscopy",
+        "what is ca",
+        "what is number of major vessels colored by fluoroscopy",
+        "info on ca",
+        "info on number of major vessels colored by fluoroscopy",
+        "about ca",
+        "about number of major vessels colored by fluoroscopy",
+        "information on ca",
+        "information on number of major vessels colored by fluoroscopy"
+      ],
+      "responses": [
+        "\"ca\" typically stands for \"number of major vessels colored by fluoroscopy.\" This attribute provides information about the number of major blood vessels in the heart that were observed to have blood flow during a fluoroscopy procedure. Fluoroscopy is a medical imaging technique that uses a continuous X-ray beam to create real-time images of internal structures.\n\nIn the specific context of heart disease prediction, the \"ca\" attribute is often used to assess the severity of coronary artery disease (CAD), which is a condition where the blood vessels that supply the heart muscle with oxygen-rich blood become narrowed or blocked. The presence of blockages or narrowing in these blood vessels can indicate a higher risk of heart-related issues."
+      ]
+    },
+    {
+      "tag": "thallium",
+      "patterns": [
+        "thallium",
+        "thal",
+        "thalassemia",
+        "what is thallium",
+        "what is thal",
+        "what is thalassemia",
+        "info on thallium",
+        "info on thal",
+        "info on thalassemia",
+        "about thallium",
+        "about thal",
+        "about thalassemia",
+        "information on thallium",
+        "information on thal",
+        "information on thalassemia"
+      ],
+      "responses": [
+        " \"Thal\" refers to the \"Thalassemia\" or, \"Thallium\" attribute. Thalassemia is a group of inherited blood disorders that affect the production of hemoglobin, the protein in red blood cells that carries oxygen to the body's tissues. Thalassemia disorders are characterized by a reduced or abnormal production of hemoglobin, which can lead to anemia and other health issues. The \"thal\" attribute has different values that correspond to different types of thalassemia and related conditions:\n\n3 (Normal): This value likely indicates that the individual's thalassemia status is normal, meaning they do not have thalassemia or related disorders affecting their hemoglobin production.\n\n6 (Fixed Defect): This value might indicate the presence of a fixed defect related to thalassemia or hemoglobin disorders. The term \"fixed defect\" suggests a permanent or unchangeable condition.\n\n7 (Reversible Defect): This value could indicate the presence of a reversible defect related to thalassemia or hemoglobin disorders. The term \"reversible defect\" suggests a condition that can potentially be treated or managed to some extent."
+      ]
+    },
+    {
+      "tag": "tips to improve heart health",
+      "patterns": [
+        "tips to improve heart health",
+        "how to improve heart health",
+        "healthy heart",
+        "heart health",
+        "improve heart health",
+        "care heart health"
+      ],
+      "responses": [
+        "Improving heart health is crucial for overall well-being and longevity. Here are some tips to help you maintain a healthy heart:\n\nEat a Heart-Healthy Diet:\n\nFocus on a diet rich in fruits, vegetables, whole grains, lean proteins, and healthy fats.\nLimit saturated and trans fats, as well as refined sugars and processed foods.\nChoose high-fiber foods to support digestion and help manage cholesterol levels.\nControl Portion Sizes:\n\nBe mindful of portion sizes to avoid overeating and unnecessary calorie intake.\nManage Weight:\n\nMaintaining a healthy weight reduces the risk of heart disease and other health conditions.\nCombine a balanced diet with regular physical activity for effective weight management.\nBe Physically Active:\n\nAim for at least 150 minutes of moderate-intensity aerobic activity or 75 minutes of vigorous-intensity aerobic activity per week.\nIncorporate strength training exercises to build muscle and improve metabolism.\nQuit Smoking:\n\nSmoking damages blood vessels, increases blood pressure, and raises the risk of heart disease. Quitting smoking has immediate and long-term health benefits.\nLimit Alcohol Consumption:\n\nIf you drink alcohol, do so in moderation. For men, that means up to two drinks per day; for women, one drink per day.\nManage Stress:\n\nChronic stress can contribute to heart disease. Practice stress-reduction techniques such as deep breathing, meditation, yoga, or spending time in nature.\nGet Quality Sleep:\n\nAim for 7-9 hours of quality sleep each night. Poor sleep can negatively impact heart health and overall well-being.\nMonitor Blood Pressure:\n\nRegularly check your blood pressure and work with your healthcare provider to keep it within a healthy range.\nControl Blood Sugar:\n\nIf you have diabetes, manage your blood sugar levels through diet, exercise, and medication as prescribed by your doctor.\nStay Hydrated:\n\nDrink plenty of water throughout the day to support overall health and proper bodily functions.\nRegular Health Check-Ups:\n\nSchedule regular check-ups with your healthcare provider to monitor your heart health and address any concerns.\nChoose Healthy Fats:\n\nOpt for sources of healthy fats such as nuts, seeds, avocados, and fatty fish rich in omega-3 fatty acids.\nLimit Sodium Intake:\n\nReduce salt consumption to help manage blood pressure. Check food labels for sodium content and choose low-sodium options.\nSocial Connections:\n\nMaintain strong social connections and spend time with loved ones. Positive relationships contribute to overall well-being."
+      ]
+    },
+    {
+      "tag": "smoking",
+      "patterns": [
+        "is smoking bad for heart?",
+        "smoking"
+      ],
+      "responses": [
+        "Smoking is extremely harmful to the heart and cardiovascular system. Smoking is a major risk factor for the development of heart disease and a leading cause of preventable death worldwide. Here's why smoking is bad for the heart:\n\nDamages Blood Vessels: Smoking damages blood vessels, causing them to narrow and become less flexible. This increases the risk of atherosclerosis, where fatty deposits build up in arteries, leading to reduced blood flow and potential blockages.\n\nIncreases Blood Pressure: Smoking raises blood pressure, putting additional stress on the heart and increasing the risk of heart attack and stroke.\n\nReduces Oxygen Supply: Carbon monoxide in cigarette smoke reduces the amount of oxygen carried by the blood, depriving the heart and other organs of oxygen and making the heart work harder. Quitting smoking is one of the best things you can do for your heart health. Within just a few years of quitting, your risk of heart disease decreases significantly. If you're a smoker and concerned about your heart health, it's strongly recommended to seek support and resources to quit smoking."
+      ]
+    },
+    {
+      "tag": "drinking",
+      "patterns": [
+        "is drinking bad for heart",
+        "drinking"
+      ],
+      "responses": [
+        "Moderate alcohol consumption may have some cardiovascular benefits, but excessive or heavy drinking can be detrimental to heart health. The effects of alcohol on the heart depend on the quantity consumed, the individual's overall health, and other factors. Here's an overview: Moderate Alcohol Consumption:\n\nSome studies suggest that moderate alcohol consumption, particularly red wine, may be associated with certain cardiovascular benefits.\nModerate consumption is typically defined as up to one drink per day for women and up to two drinks per day for men.\nSome research suggests that moderate alcohol consumption may raise \"good\" HDL cholesterol levels and have anti-inflammatory effects that could be beneficial for the heart.\nExcessive Alcohol Consumption:\n\nHeavy drinking or binge drinking can lead to high blood pressure, irregular heartbeat, cardiomyopathy (weakening of the heart muscle), and an increased risk of heart failure.\nExcessive alcohol intake can contribute to the development of atrial fibrillation, a type of irregular heartbeat that increases the risk of stroke and other cardiovascular complications.\nAlcohol can also contribute to the development of high triglycerides, a type of fat in the blood that increases the risk of heart disease."
+      ]
+    },
+    {
+      "tag": "baymax",
+      "patterns": [
+        "who are you",
+        "about yourself",
+        "you",
+        "who are you",
+        "name",
+        "your name",
+        "what shall i call you"
+      ],
+      "responses": [
+        "Hello! I am Baymax, an AI companion designed to provide assistance and support to users. If you have any questions or need help, feel free to ask! But i am still lacking to certain areas such as my incapability of understanding users messages in case of any missing letters or words."
+      ]
+    },
+    {
+      "tag": "creator",
+      "patterns": [
+        "who created you",
+        "who made you",
+        "creator",
+        "maker",
+        "details of your programmer"
+      ],
+      "responses": [
+        "I was created by a student studying at Everest Innovative College (solteemode, kathmandu)- John Hang Rai currently studying BCA, 6th semester."
+      ]
+    },
+    {
+      "tag": "heart disease risk factors",
+      "patterns": [
+        "heart disease risk factors",
+        "what are heart disease risk factors",
+        "can you tell me about heart disease risk factors"
+      ],
+      "responses": [
+        "Certainly, here are some common risk factors for heart disease: age, gender, family history, high blood pressure, high cholesterol, smoking, diabetes, obesity, physical inactivity, unhealthy diet, stress, alcohol consumption, sleep apnea, chronic kidney disease, and lack of social support."
+      ]
+    },{
+      "tag": "heart_disease",
+      "patterns": [
+        "can you tell me about heart disease ?",
+        "what is heart disease ?",
+        "heart disease"
+      ],
+      "responses": [
+        "Heart disease, also known as cardiovascular disease, refers to a class of diseases that involve the heart or blood vessels. It is a broad term that encompasses various conditions, including coronary artery disease, heart failure, valvular heart disease, and more. If you have specific questions or concerns about heart disease, it's crucial to consult with a healthcare professional for personalized advice and guidance based on your individual health status."
+      ]
+    }
+  ]
+}

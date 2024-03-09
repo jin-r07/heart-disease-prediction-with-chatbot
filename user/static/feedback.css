@@ -1,0 +1,171 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", ui-system, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.top {
+    background-color: #0e0e1a;
+    width: 100%;
+    height: 110px;
+    position: relative;
+}
+
+.top img {
+    width: 72px;
+    height: 66px;
+    position: absolute;
+    top: 16%;
+    left: 20%;
+}
+
+.top p {
+    color: white;
+    font-size: 24px;
+    position: absolute;
+    top: 34%;
+    left: 27%;
+}
+
+.top a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    position: absolute;
+    top: 38%;
+    left: 72%;
+}
+
+.top a:hover {
+    text-decoration: underline;
+}
+
+.feedback {
+    padding-top: 30px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-bottom: 20px;
+    background: #F2F2F2;
+}
+
+.container {
+    width: 350px;
+}
+
+.container h2 {
+    color: #4D3F66;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: 1px solid #e5e3e3;
+    border-radius: 20px;
+}
+
+.form-group textarea {
+    resize: vertical;
+    height: 150px;
+}
+
+.btn-send {
+    font-size: 16px;
+    font-weight: 500;
+    width: 90px;
+    background-color: #EF6D63;
+    color: #fff;
+    border: none;
+    padding: 9px 19px;
+    border-radius: 20px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    transition: 0.4s;
+}
+
+.btn-send:hover {
+    width: 100px;
+    background-color: #8a403c;
+}
+
+footer {
+    padding: 20px;
+    text-align: center;
+}
+
+.social-icons {
+    margin-bottom: 10px;
+}
+
+.social-icons a {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 50%;
+    margin-right: 10px;
+    font-size: 16px;
+    line-height: 30px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.social-icons a:hover {
+    background-color: #555;
+}
+
+footer p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 0;
+}
+
+#submitButton:disabled {
+    cursor: not-allowed;
+}
+
+.error {
+    color: red;
+    margin-left: 5%;
+}
+
+.success-container {
+    position: fixed;
+    top: 22%;
+    right: -4%;
+    transform: translate(-50%, -50%);
+    background-color: #29d77c;
+    color: white;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 9999;
+}
+
+.success-container.show {
+    display: block;
+}

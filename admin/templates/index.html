@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../static/assets/logoA.png">
+    <link rel="stylesheet" type="text/css" href="../static/index.css">
+    <script src="https://kit.fontawesome.com/cacd88a93b.js" crossorigin="anonymous"></script>
+    <title>Admin Dashboard - Heart Disease Prediction</title>
+</head>
+<body>
+<div class="container">
+    <nav class="top-navbar">
+        <h2>Admin Panel</h2>
+        <div class="admin-profile" id="logout">
+            <img src="{{ adminImage }}" alt="Admin">
+            <h3>{{ adminName }}<i class="fa-solid fa-caret-down"></i></h3>
+            <span id="logoutOption" class="hidden">
+                <a href="/admin_logout">Logout</a>
+            </span>
+        </div>
+    </nav>
+    <div class="sidebar">
+        <div class="admin">
+            <img src="../static/assets/logoA.png" alt="Logo">
+            <h3>HDPC</h3>
+        </div>
+        <ul>
+            <li><a class="active" href="#dashboard"><i class="fa-solid fa-table-columns"></i>Dashboard</a></li>
+            <li><a href="#users"><i class="fa-solid fa-user"></i>Users</a></li>
+            <li><a href="#feedbacks"><i class="fa-solid fa-comment"></i>Feedbacks</a></li>
+            <li><a href="#predictions"><i class="fa-solid fa-clock-rotate-left"></i>Prediction History</a></li>
+            <li><a href="#disease_dataset"><i class="fa-solid fa-file-medical"></i>Heart Disease Dataset</a></li>
+            <li><a href="#conversation_dataset"><i class="fa-solid fa-note-sticky"></i>Conversation Dataset</a></li>
+            <li><a href="#manage_datasets"><i class="fa-solid fa-list-check"></i>Manage Datasets</a></li>
+        </ul>
+    </div>
+
+    <div class="content" id="dashboard">
+        <h1>&nbsp;Welcome Back, {{ adminName }}</h1>
+        <div class="box-container">
+            <div class="box">
+                <i class="fas fa-user-group" style="color:#388dbc;"></i>
+                <div class="box-content">
+                    <div class="box-number">{{ total_users }}</div>
+                    <p>Total User(s)</p>
+                </div>
+            </div>
+            <div class="box">
+                <i class="fa-solid fa-book-bookmark"></i>
+                <div class="box-content">
+                    <div class="box-number">{{ ds }}</div>
+                    <p>Dataset(s)</p>
+                </div>
+            </div>
+            <div class="box">
+                <i class="fas fa-comment-dots" style="color:#ef6d62;"></i>
+                <div class="box-content">
+                    <div class="box-number">{{ fd }}</div>
+                    <p>Feedback(s)</p>
+                </div>
+            </div>
+            <div class="box">
+                <i class="fa-solid fa-percent" style="color:#4CAF50;"></i></i>
+                <div class="box-content">
+                    <div class="box-number">{{ accuracy }}</div>
+                    <p>Trained model accuracy</p>
+                </div>
+            </div>
+        </div>
+        <div class="diagram side">
+            {{ chart | safe }}
+        </div>
+        <div class="todo side">
+            <h3>To-Do List</h3>
+            <label for="taskInput"><input id="taskInput" type="text" placeholder="Add a new task"></label>
+            <button id="addButton">Add Task</button>
+            <ul id="taskList">
+            </ul>
+        </div>
+        <div class="new_users side" id="user-list">
+            <h3>New Users</h3>
+            {% for data in profile | sort(attribute='user_detail.0', reverse=true) %}
+            {% if loop.index <= 5 %}
+            <div class="details">
+                <img src="{{ data['image_url'] }}" alt="Profile">
+                <div class="user-info">
+                    <p>{{ data['user_detail'][1] }}</p>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="content" id="users">
+        <h2>Registered Users Account</h2>
+        <table>
+            <tr>
+                <th>Id:</th>
+                <th>Profile picture:</th>
+                <th>Username:</th>
+                <th>Email:</th>
+                <th>Creation Date & Time:</th>
+                <th>Status:</th>
+                <th>AdminId:</th>
+                <th>Action:</th>
+            </tr>
+            {% for user in profile %}
+            <tr>
+                <td>{{ user['user_detail'][0] }}</td>
+                <td><img class="user_profile" src="{{ user['image_url'] }}" alt="Profile"></td>
+                <td>{{ user['user_detail'][1] }}</td>
+                <td>{{ user['user_detail'][2] }}</td>
+                <td>{{ user['user_detail'][5] }}</td>
+                <td>
+                    {% if user['user_detail'][6] == 1 %}
+                    <p class="active">Active</p>
+                    {% elif user['user_detail'][6] == 0 %}
+                    <p class="inactive">Inactive</p>
+                    {% endif %}
+                </td>
+                <td>{{ user['user_detail'][7] }}</td>
+                <td>
+                    <form action="{{ url_for('status_user', user_id=user['user_detail'][0]) }}" method="POST" onsubmit="return confirmDeleteUser();">
+                        <button class="st_btn" type="submit">Change Status</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <div class="content" id="feedbacks">
+        <h2>Users Feedbacks</h2>
+        <table>
+            <tr>
+                <th>Id:</th>
+                <th>Username:</th>
+                <th>Email:</th>
+                <th>Message:</th>
+                <th>Sent Date & Time:</th>
+                <th>Action:</th>
+            </tr>
+            {% for fd in feedbacks %}
+            <tr>
+                <td>{{ fd[0] }}</td>
+                <td>{{ fd[1] }}</td>
+                <td>{{ fd[2] }}</td>
+                <td>{{ fd[3] }}</td>
+                <td>{{ fd[4] }}</td>
+                <td>
+                    <form action="{{ url_for('feedback_delete', feedback_id=fd[0]) }}" method="POST" onsubmit="return confirmDeleteFeedback();">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <div class="content" id="predictions">
+        <h2>Prediction History</h2>
+        <table class="prediction_table">
+            <thead>
+            <tr>
+                <th>Age:</th>
+                <th>Gender:</th>
+                <th>Chest Pain Type:</th>
+                <th>Blood Pressure:</th>
+                <th>Cholesterol:</th>
+                <th>Fasting Blood Sugar Level (FBS):</th>
+                <th>(EKG/ECG) Results:</th>
+                <th>Max.Heart Rate:</th>
+                <th>Exercise-Induced Angina:</th>
+                <th>ST Depression:</th>
+                <th>Slope of ST Segment:</th>
+                <th>Major Vessels Detected:</th>
+                <th>Thallium Stress Test:</th>
+                <th>Result:</th>
+                <th>Predict Date & Time:</th>
+                <th>UserId:</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for result in history %}
+            <tr>
+                <td>{{ result[1] }}</td>
+                <td>
+                    {% if result[2] == 0 %}
+                    Female
+                    {% elif result[2] == 1 %}
+                    Male
+                    {% endif %}
+                </td>
+                <td>
+                    {% if result[3] == 0 %}
+                    Typical angina
+                    {% elif result[3] == 1 %}
+                    Atypical angina
+                    {% elif result[3] == 2 %}
+                    Non-Anginal Pain
+                    {% elif result[3] == 3 %}
+                    Asymptomatic
+                    {% endif %}
+                </td>
+                <td>{{ result[4] }}</td>
+                <td>{{ result[5] }}</td>
+                <td>
+                    {% if result[6] == 0 %}
+                    Less than 120 mg/dL
+                    {% elif result[6] == 1 %}
+                    Greater than or, equal to 120 mg/dL
+                    {% endif %}
+                </td>
+                <td>
+                    {% if result[7] == 0 %}
+                    Normal or, within-normal-limits
+                    {% elif result[7] == 1 %}
+                    Minor ST-T wave abnormalities
+                    {% elif result[7] == 2 %}
+                    Probable or, definite left ventricular hypertrophy
+                    {% endif %}
+                </td>
+                <td>{{ result[8] }}</td>
+                <td>
+                    {% if result[9] == 0 %}
+                    No
+                    {% elif result[9] == 1 %}
+                    Yes
+                    {% endif %}
+                </td>
+                <td>{{ result[10] }}</td>
+                <td>
+                    {% if result[11] == 0 %}
+                    Upward or, positive slope of the ST segment
+                    {% elif result[11] == 1 %}
+                    Flat or, horizontal slope of the ST segment
+                    {% elif result[11] == 2 %}
+                    Downward or, negative slope of the ST segment
+                    {% endif %}
+                </td>
+                <td>{{ result[12] }}</td>
+                <td>
+                    {% if result[13] == 1 %}
+                    Anterior segment
+                    {% elif result[13] == 2 %}
+                    Inferior segment
+                    {% elif result[13] == 3 %}
+                    Lateral segment
+                    {% endif %}
+                </td>
+                <td>
+                    {% if result[14] == 0 %}
+                    No Heart Disease
+                    {% elif result[14] == 1 %}
+                    Heart Disease
+                    {% endif %}
+                </td>
+                <td>{{ result[15] }}</td>
+                <td>{{ result[16] }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="content" id="disease_dataset">
+        <h2>Heart Disease Dataset</h2>
+        {% if selected_option %}
+        <div class="data">
+            <h2>CSV Data from {{ selected_option }}:</h2>
+            <div class="rows">
+                {% for row in csv_data %}
+                <div class="row">
+                    {% for cell in row %}
+                    <div class="cell">{{ cell }}</div>
+                    {% endfor %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% else %}
+        <p>No data available.</p>
+        {% endif %}
+    </div>
+
+    <div class="content" id="conversation_dataset">
+        <h2>Conversation Dataset<button class="pat-res" id="showFormBtn2">Add New Patterns and Responses</button></h2>
+        {% if selected_option1 %}
+        <div class="data">
+            <h2>Patterns & Responses from {{ selected_option1 }}:</h2>
+            <div class="intents">
+                {% if json_data %}
+                <ul>
+                    {% for intent in json_data['intents'] %}
+                    <li>
+                        <strong>Tag:</strong> {{ intent['tag'] }}
+                        <ul>
+                            <li><strong>Patterns:</strong> {{ intent['patterns']|join(', ') }}</li>
+                            {% set response_text = intent['responses']|join(', ')|replace('\n', '<br>') %}
+                            <li><strong>Responses:</strong> {{ response_text|safe }}</li>
+                        </ul>
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% else %}
+                <p>No intents data available.</p>
+                {% endif %}
+            </div>
+        </div>
+        <div id="modalOverlay">
+            <div class="modal-content">
+                <h2>Add New Patterns and Responses:</h2>
+                <form id="addForm" action="/update_json" method="POST">
+                    <label for="tag">Tag:</label>
+                    <input type="text" id="tag" name="tag">
+                    <br>
+                    <label for="patterns">Patterns (comma-separated):</label>
+                    <input type="text" id="patterns" name="patterns">
+                    <br>
+                    <label for="responses">Responses (comma-separated):</label>
+                    <input type="text" id="responses" name="responses">
+                    <br>
+                    <input type="submit" value="Submit">
+                    <button type="button" id="closeFormButton2">Close</button>
+                </form>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+
+    <div class="content" id="manage_datasets">
+        <h2>Manage Datasets</h2>
+        <button class="add_ds" id="showFormButton">Add New Dataset</button>
+        <form id="datasetForm" action="/add_dataset" method="POST" enctype="multipart/form-data">
+            <label for="fileInput">Choose a file (JSON or CSV):</label>
+            <input type="file" id="fileInput" name="datasetFile" accept=".json, .csv" required>
+            <button type="submit" class="submit">Upload</button>
+            <button type="button" id="closeFormButton">Close</button>
+        </form>
+        <table>
+            <tr>
+                <th>Id:</th>
+                <th>Filename:</th>
+                <th>File type:</th>
+                <th>Upload Date & Time:</th>
+                <th>AdminId:</th>
+                <th>Action:</th>
+            </tr>
+            {% for ds in ds_details %}
+            <tr>
+                <td>{{ ds[0] }}</td>
+                <td>{{ ds[1].split('.')[0] }}</td>
+                <td>{{ ds[2] }}</td>
+                <td>{{ ds[3] }}</td>
+                <td>{{ ds[4] }}</td>
+                <td>
+                    <form action="{{ url_for('dataset_delete', ds_id=ds[0]) }}" method="POST" onsubmit="return confirmDeleteDataset();">
+                        <button type="submit" style="margin: 10px;">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+<script>
+    const links = document.querySelectorAll(".sidebar ul li a");
+    const contents = document.querySelectorAll(".content");
+
+    links.forEach(link => {
+        link.addEventListener("click", function (event) {
+            event.preventDefault();
+
+            links.forEach(link => {
+                link.classList.remove("active");
+            });
+
+            this.classList.add("active");
+
+            const targetContentId = this.getAttribute("href");
+
+            contents.forEach(content => {
+                content.style.display = "none";
+            });
+
+            document.querySelector(targetContentId).style.display = "block";
+        });
+    });
+
+    const taskInput = document.getElementById("taskInput");
+    const addButton = document.getElementById("addButton");
+    const taskList = document.getElementById("taskList");
+
+    function updateLocalStorageTasks(tasks) {
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+    }
+
+    function populateTaskListFromLocalStorage() {
+        const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+        tasks.forEach(taskText => {
+            const li = document.createElement("li");
+            li.innerHTML = `
+                <span>${taskText}</span>
+                <button class="deleteButton">Delete</button>
+            `;
+            taskList.appendChild(li);
+        });
+    }
+
+    addButton.addEventListener("click", function () {
+        const taskText = taskInput.value.trim();
+        if (taskText !== "") {
+            const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+            tasks.push(taskText);
+            updateLocalStorageTasks(tasks);
+            const li = document.createElement("li");
+            li.innerHTML = `
+                <span>${taskText}</span>
+                <button class="deleteButton">Delete</button>
+            `;
+            taskList.appendChild(li);
+            taskInput.value = "";
+        }
+    });
+
+    taskList.addEventListener("click", function (event) {
+        if (event.target.classList.contains("deleteButton")) {
+            if (confirm("Are you sure you want to delete this task?")) {
+                const taskText = event.target.previousElementSibling.textContent;
+                event.target.parentNode.remove();
+                const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+                const updatedTasks = tasks.filter(task => task !== taskText);
+                updateLocalStorageTasks(updatedTasks);
+            }
+        }
+    });
+    populateTaskListFromLocalStorage();
+
+    function confirmDeleteUser() {
+        return confirm('Change status of this user?');
+    }
+
+    function confirmDeleteDataset() {
+        return confirm('Delete this dataset?');
+    }
+
+    function confirmDeleteFeedback() {
+        return confirm('Delete this feedback?');
+    }
+
+    const showFormButton = document.getElementById('showFormButton');
+    const closeFormButton = document.getElementById('closeFormButton');
+    const datasetForm = document.getElementById('datasetForm');
+    const fileInput = document.getElementById('fileInput');
+
+    showFormButton.addEventListener('click', () => {
+        datasetForm.style.display = 'block';
+    });
+
+    closeFormButton.addEventListener('click', () => {
+        datasetForm.style.display = 'none';
+    });
+
+    datasetForm.addEventListener('submit', function (event) {
+        const allowedExtensions = ['.json', '.csv'];
+        const fileName = fileInput.value;
+        const fileExtension = fileName.slice(fileName.lastIndexOf('.')).toLowerCase();
+
+        if (!allowedExtensions.includes(fileExtension)) {
+            event.preventDefault();
+            alert('Please select a JSON or CSV file.');
+        }
+    });
+
+    document.getElementById("showFormBtn2").addEventListener("click", function() {
+        document.getElementById("modalOverlay").style.display = "block";
+    });
+
+    document.getElementById("closeFormButton2").addEventListener("click", function() {
+        document.getElementById("modalOverlay").style.display = "none";
+    });
+
+</script>
+</body>
+</html>

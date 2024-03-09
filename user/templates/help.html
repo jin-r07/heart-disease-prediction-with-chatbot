@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../static/assets/logo.png">
+    <link rel="stylesheet" type="text/css" href="../static/help.css">
+    <script src="https://kit.fontawesome.com/cacd88a93b.js" crossorigin="anonymous"></script>
+    <title>Help & FAQ - Heart Disease Prediction ChatBot</title>
+</head>
+<body>
+<div class="top">
+    <img src="../static/assets/logo.png" alt="Logo">
+    <p>Help & FAQ</p>
+    <a href="/">Go back to Home</a>
+</div>
+<div class="faq">
+    <div class="topics">
+        <p class="question" onclick="toggleAnswer(1)" id="question-1">What is the purpose of this application?<i class="fa-solid fa-chevron-right"></i></p>
+        <h5 class="answer" id="answer-1">This application helps users predict their risk of heart disease based on their medical-evaluated data. It uses Logistic Regression algorithm to provide personalized risk assessments.</h5>
+
+        <p class="question" onclick="toggleAnswer(2)" id="question-2">How do I predict the heart disease in this application?<i class="fa-solid fa-chevron-right"></i></p>
+        <h5 class="answer" id="answer-2">You can click on the option Predict Heart Disease right below Chat Bot Assistance option. A form will pop up that requests for individual's medical-evaluated data and finally click on the Predict button for prediction.</h5>
+
+        <p class="question" onclick="toggleAnswer(3)" id="question-3">What medical data is required for the prediction?<i class="fa-solid fa-chevron-right"></i></p>
+        <h5 class="answer" id="answer-3">The application requires information such as age, gender, blood pressure, cholesterol levels, maximum heart rate, and more. These details help in creating an accurate prediction.</h5>
+
+        <p class="question" onclick="toggleAnswer(4)" id="question-4">Is my account information secure?<i class="fa-solid fa-chevron-right"></i></p>
+        <h5 class="answer" id="answer-4">Yes, user data are safe and secure within this application. Only the authorized users can manage their user information. Admins do have access to user details but do not have access to change user info and do not have access to users login password.</h5>
+
+        <p class="question" onclick="toggleAnswer(5)" id="question-5">How accurate are the predictions?<i class="fa-solid fa-chevron-right"></i></p>
+        <h5 class="answer" id="answer-5">The accuracy of predictions depends on the quality and accuracy of the provided medical data. The application's algorithm strives to provide reliable predictions based on the data entered.</h5>
+
+        <p class="question" onclick="toggleAnswer(6)" id="question-6">Can I use the application without creating an account?<i class="fa-solid fa-chevron-right"></i></p>
+        <h5 class="answer" id="answer-6">Yes, you can use the application to get a prediction without creating an account. However, to interact with the chatbot creating an account and logging in with the registered account is mandatory.</h5>
+
+        <p class="question" onclick="toggleAnswer(7)" id="question-7">How do I interpret the prediction result?<i class="fa-solid fa-chevron-right"></i></p>
+        <h5 class="answer" id="answer-7">The prediction result will provide information about the likelihood of having heart disease. It's important to note that this is not a definitive diagnosis but rather a risk assessment.</h5>
+
+        <p class="question" onclick="toggleAnswer(8)" id="question-8">Can I rely solely on this prediction for medical decisions?<i class="fa-solid fa-chevron-right"></i></p>
+        <h5 class="answer" id="answer-8">No, the prediction is not a substitute for professional medical advice. It's important to consult a qualified healthcare provider for accurate diagnosis and recommendations.</h5>
+
+        <p class="question" onclick="toggleAnswer(9)" id="question-9">How do I use the chatbot for additional information?<i class="fa-solid fa-chevron-right"></i></p>
+        <h5 class="answer" id="answer-9">The chatbot can answer general questions related to heart disease, the prediction process, and application usage. Simply type your question in the Send a message box, and the chatbot will respond with proper response.</h5>
+
+        <p class="question" onclick="toggleAnswer(10)" id="question-10">Can I use the application for someone else, like a family member?<i class="fa-solid fa-chevron-right"></i></p>
+        <h5 class="answer" id="answer-10">Yes, you can but the application is designed for individual use and uses personal medical data for predictions. It's recommended that each person create their own account and enter their own data for accurate results.</h5>
+
+        <p class="question" onclick="toggleAnswer(11)" id="question-11">What is the role of the chatbot?<i class="fa-solid fa-chevron-right"></i></p>
+        <h5 class="answer" id="answer-11">The chatbot is designed to offer additional information, answer common questions, and provide guidance related to heart health. It can help you understand the factors contributing to your risk and suggest lifestyle changes or actions you can take to lower your risk. And do remember that this feature is only available to the users who have logged in with their registered account.</h5>
+
+        <p class="question" onclick="toggleAnswer(12)" id="question-12">I'm having trouble with the chatbot. What should I do?<i class="fa-solid fa-chevron-right"></i></p>
+        <h5 class="answer" id="answer-12">If you're experiencing difficulties with the chatbot, please ensure you are logged in with your registered account. If the issue persists, you can contact our support team for assistance through the provided contact information or through feedback.</h5>
+
+        <p class="question" onclick="toggleAnswer(13)" id="question-13">What if I encounter any issues while using the application?<i class="fa-solid fa-chevron-right"></i></p>
+        <h5 class="answer" id="answer-13">If you experience problems or issues, please provide your feedback or contact our support team at raijohn54321@gmail.com for assistance.</h5>
+
+        <p class="question" onclick="toggleAnswer(14)" id="question-14">How often should I use the prediction feature?<i class="fa-solid fa-chevron-right"></i></p>
+        <h5 class="answer" id="answer-14">There's no strict rule, but using the prediction feature periodically can help you track changes in your risk assessment over time.</h5>
+
+        <p class="question" onclick="toggleAnswer(15)" id="question-15">Are there any costs associated with using the application?<i class="fa-solid fa-chevron-right"></i></p>
+        <h5 class="answer" id="answer-15">Use of the application, including prediction and chatbot features, is free. However, for chatbot feature, it is necessary to have a registered account and logged in with the registered account.</h5>
+
+        <p class="question" onclick="toggleAnswer(16)" id="question-16">How can I change my password?<i class="fa-solid fa-chevron-right"></i></p>
+        <h5 class="answer" id="answer-16">If you are already logged in with your registered account, you can simply click on the Password option that can be navigated through the Settings option. And in case of not logged in, you can visit the login page and click on the forgot password option, and you can change the password through email verification.</h5>
+
+        <p class="question" onclick="toggleAnswer(17)" id="question-17">Can I change my personal details?<i class="fa-solid fa-chevron-right"></i></p>
+        <h5 class="answer" id="answer-17">Yes, you can change your profile picture, username and email by navigating to Personal info option within the Settings and upload a new profile picture within the Change your profile picture section along with new username and email within the Username and Email options.</h5>
+
+        <p class="question" onclick="toggleAnswer(18)" id="question-18">Do the conversations that I have with the chatbot stored?<i class="fa-solid fa-chevron-right"></i></p>
+        <h5 class="answer" id="answer-18">No, the message history is only stored until the user is logged in with their registered account. If the user logs out of the application, the user's conversation with the chatbot is also cleared. We are improving the application to introduce this feature.</h5>
+
+        <p class="question" onclick="toggleAnswer(19)" id="question-19">Can I see my prediction history?<i class="fa-solid fa-chevron-right"></i></p>
+        <h5 class="answer" id="answer-19">Yes, you can see your prediction history within the Settings, Account option. But only the prediction that are carried out after the user is logged in with their registered accounts can be viewed again in the Prediction History table.</h5>
+    </div>
+</div>
+
+<footer>
+    <div class="social-icons">
+        <a title="twitter" href="https://twitter.com/JohnRai99109305" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+        <a title="linkedIn" href="https://www.linkedin.com/in/john-rai-b844a7266/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+    </div>
+    <p>&copy; 2023 Heart Disease Prediction with ChatBot. All rights reserved.</p>
+</footer>
+
+<script>
+    function toggleAnswer(questionId) {
+        const question = document.getElementById("question-" + questionId);
+        const answer = document.getElementById("answer-" + questionId);
+        if (answer.style.display === "block") {
+            answer.style.display = "none";
+            question.classList.remove("active");
+        } else {
+            answer.style.display = "block";
+            question.classList.add("active");
+        }
+    }
+</script>
+</body>
+</html>

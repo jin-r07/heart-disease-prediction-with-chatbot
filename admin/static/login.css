@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", ui-system, sans-serif;
+}
+
+body {
+    background-color: #F7EEE9;
+}
+
+.admin-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8%;
+    flex-direction: column;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    flex-direction: row;
+}
+
+.header-content h1 {
+    margin: 0;
+    font-weight: 500;
+    font-size: 32px;
+}
+
+.header-content img.logo {
+    width: 22%;
+    height: 22%;
+    margin-right: 10px;
+}
+
+.admin {
+    width: 500px;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    text-align: center;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.admin label {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.admin input {
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.admin button {
+    padding: 6px 16px 9px 16px;
+    background-color: #4caf50;
+    letter-spacing: 1px;
+    font-weight: 600;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.admin button:hover {
+    background-color: #45a049;
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+#loginButton:disabled {
+    transform: none;
+    box-shadow: none;
+    color: white;
+    background-color: #a2a2a2;
+    cursor: not-allowed;
+}
+
+.admin i.fa-solid {
+    font-size: 12px;
+}
+
+.admin i.fa-chevron-right {}
+
+.error {
+    color: red;
+}
+
+.alert-container {
+    position: fixed;
+    top: 10%;
+    right: -10%;
+    transform: translate(-50%, -50%);
+    background-color: #f44336;
+    color: white;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 9999;
+}
+
+.alert-container.show {
+    display: block;
+}
